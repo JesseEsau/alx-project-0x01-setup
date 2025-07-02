@@ -69,9 +69,11 @@ const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        onSubmit(user);
+        const userWithId = { ...user, id: Math.floor(Math.random() * 10000) }; // or use props/posts.length + 1
+        onSubmit(userWithId);
         onClose();
     };
+
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
